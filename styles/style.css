@@ -40,3 +40,15 @@ h1, h3 {
     animation: bannerImageAnimation 4s infinite ease-out ;
 }
 
+.content {
+    column-count: 3;
+    column-gap: 20px;
+    text-align: justify;
+}
+
+.large-content {
+    width: 200px;
+    height: 200px;
+    color: blue;
+    resize: vertical;
+}
