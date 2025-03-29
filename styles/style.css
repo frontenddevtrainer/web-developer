@@ -19,3 +19,12 @@ h1, h3 {
     word-wrap: break-word;
     word-break: break-word;
 }
+
+.rating {
+    transition: transform 1s, font-size 1s;
+}
+
+.rating:hover  {
+    transform: scale(2.5);
+    font-size: 60px;
+}

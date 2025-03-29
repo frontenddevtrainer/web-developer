@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rotate3d Example</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    
+    .rotate-div {
+      width: 200px;
+      height: 200px;
+      background-color: #3498db;
+      border: 2px solid #2980b9;
+      transform-style: preserve-3d; /* Necessary for 3D transformations */
+      transition: transform 2s; /* Smooth transition for rotation */
+    }
+
+    /* Adding hover effect to rotate the div */
+    .rotate-div:hover {
+      transform: rotate3d(1, 1, 0, 45deg); /* Rotate 45 degrees around X and Y axes */
+    }
+  </style>
+</head>
+<body>
+  <div class="rotate-div">Hello World</div>
+
+  <script>
+    // Optional JavaScript to dynamically trigger rotations
+    const rotateDiv = document.querySelector('.rotate-div');
+
+    // Rotate every 3 seconds using JS
+    setInterval(() => {
+      rotateDiv.style.transform = `rotate3d(1, 1, 0, ${Math.random() * 360}deg)`; // Random rotation
+    }, 1000);
+  </script>
+</body>
+</html>
