@@ -1,18 +1,5 @@
-@media print {
-
+/* @media (max-width: 375px) {
     body {
         font-family: 'Courier New', Courier, monospace;
     }
-
-    .main-navigation {
-        display: none;
-    }
-
-    .columns {
-        display: block;
-    }
-
-    .right-column {
-        background-color: gainsboro;
-    }
-}
+} */
