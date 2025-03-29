@@ -3,3 +3,19 @@
         font-family: 'Courier New', Courier, monospace;
     }
 } */
+
+@font-face {
+    font-family: "CooperHewitt";
+    src:
+      local("CooperHewitt"),
+      url("../fonts/CooperHewitt-Thin.otf") format("opentype"),
+      url("../fonts/CooperHewitt-ThinItalic.otf") format("opentype"),
+  }
+
+
+h1, h3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: "CooperHewitt";
+    word-wrap: break-word;
+    word-break: break-word;
+}
