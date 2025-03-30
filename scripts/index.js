@@ -1,39 +1,81 @@
-var usElectionVotingResults = [
-    {
-        serialNo: 1,
-        region: "Florida",
-        democraticParty: 432,
-        republicanParty: 342
-    },
-    {
-        serialNo: 2,
-        region: "Arizona",
-        democraticParty: 432,
-        republicanParty: 342
+class VoteResult {
+    constructor(region, democraticParty, republicanParty) {
+        this.region = region;
+        this.democraticParty = democraticParty;
+        this.republicanParty = republicanParty;
     }
-    // ......
-];
 
-// DOM Document Object Model
+    whoIsWinning() {
 
-function createVoteTable(){
+        // if else 
+        // if else if 
+        // if
 
-    var tableContainer = document.getElementById("table-container")
+        // if(this.democraticParty > this.republicanParty) {
+        //     return "Democratic Party"
+        // }
+        // else {
+        //     return "Republican Party"
+        // }
 
-    var tableHTML = `<table>`;
 
-    usElectionVotingResults.forEach(function(item){
-        tableHTML += `<tr>
-            <td>${item.serialNo}</td>
-            <td>${item.region}</td>
-            <td>${item.democraticParty}</td>
-            <td>${item.republicanParty}</td>
-        </tr>`
-    })
-    
-    tableHTML += `</table>`
+        // if (this.democraticParty > this.republicanParty) {
+        //     return "Democratic Party"
+        // }
+        // else if (this.republicanParty > this.democraticParty) {
+        //     return "Republican Party"
+        // }
+        // else {
+        //     return "Tie"
+        // }
 
-    tableContainer.innerHTML = tableHTML
+        if (this.democraticParty > this.republicanParty) {
+            return "Democratic Party"
+        }
+
+        if (this.republicanParty > this.democraticParty) {
+            return "Republican Party"
+        }
+
+        if (this.republicanParty === this.democraticParty) {
+            return "tie"
+        }
+
+    }
+
 }
 
-createVoteTable();
+const table = document.getElementById("table-container");
+
+const voteResults = [
+    new VoteResult("Arizona", 5434, 4534),
+    new VoteResult("New York", 4324, 1233),
+    new VoteResult("Florida", 756, 535),
+    new VoteResult("Texas", 5643, 4765),
+    new VoteResult("Georgia", 123, 987),
+    new VoteResult("Vermont", 12, 12),
+];
+
+var tableHTML = `<table>`;
+
+tableHTML += `<tr>
+    <td>Serial No</td>
+    <td>Region</td>
+    <td>Democratic Party</td>
+    <td>Republican Party</td>
+    <td>Lead</td>
+</tr>`
+
+voteResults.forEach((result, index) => {
+    tableHTML += `<tr>
+        <td>${index + 1}</td>
+        <td>${result.region}</td>
+        <td>${result.democraticParty}</td>
+        <td>${result.republicanParty}</td>
+        <td>${result.whoIsWinning()}</td>
+    </tr>`
+})
+
+tableHTML += `</table>`;
+
+table.innerHTML = tableHTML;
