@@ -11,7 +11,36 @@
     <script>
         var number1 = 100;
         var number2 = 45;
-        var resultContainer = document.getElementById("results");
+        
+        function add(number1, number2) {
+            return number1 + number2
+        }
+
+        function sub(number1, number2) {
+            return number1 - number2
+        }
+
+        function multiply(number1, number2) {
+            return number1 * number2
+        }
+
+        function divide(number1, number2) {
+            return number1 / number2
+        }
+
+        function mod(number1, number2) {
+            return number1 % number2
+        }
+
+        function printResult(result){
+            var resultContainer = document.getElementById("results");
+            resultContainer.innerText = result;
+        }
+
+        var result = multiply(3123123, 423432424);
+        printResult(result);
+        
+        
         // Add
         // resultContainer.innerHTML = number1 + number2
 
