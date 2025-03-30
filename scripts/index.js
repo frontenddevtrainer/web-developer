@@ -45,20 +45,40 @@ class VoteResult {
 
 }
 
+const loadResultsButton = document.getElementById("loadResultsButton");
 const table = document.getElementById("table-container");
+var isResultShown = false;
 
-const voteResults = [
-    new VoteResult("Arizona", 5434, 4534),
-    new VoteResult("New York", 4324, 1233),
-    new VoteResult("Florida", 756, 535),
-    new VoteResult("Texas", 5643, 4765),
-    new VoteResult("Georgia", 123, 987),
-    new VoteResult("Vermont", 12, 12),
-];
+loadResultsButton.addEventListener("click", function(){
+    
+    if(!isResultShown) {
+        loadResults();
+        loadResultsButton.innerText = "Hide Results"
+        isResultShown = true;
+    }else {
+        table.innerHTML = "";
+        loadResultsButton.innerText = "Load Results"
+        isResultShown = false;
+    }
 
-var tableHTML = `<table>`;
+    
+})
 
-tableHTML += `<tr>
+function loadResults() {
+    
+
+    const voteResults = [
+        new VoteResult("Arizona", 5434, 4534),
+        new VoteResult("New York", 4324, 1233),
+        new VoteResult("Florida", 756, 535),
+        new VoteResult("Texas", 5643, 4765),
+        new VoteResult("Georgia", 123, 987),
+        new VoteResult("Vermont", 12, 12),
+    ];
+
+    var tableHTML = `<table>`;
+
+    tableHTML += `<tr>
     <td>Serial No</td>
     <td>Region</td>
     <td>Democratic Party</td>
@@ -66,16 +86,22 @@ tableHTML += `<tr>
     <td>Lead</td>
 </tr>`
 
-voteResults.forEach((result, index) => {
-    tableHTML += `<tr>
+    voteResults.forEach((result, index) => {
+        tableHTML += `<tr>
         <td>${index + 1}</td>
         <td>${result.region}</td>
         <td>${result.democraticParty}</td>
         <td>${result.republicanParty}</td>
         <td>${result.whoIsWinning()}</td>
     </tr>`
-})
+    })
 
-tableHTML += `</table>`;
+    tableHTML += `</table>`;
 
-table.innerHTML = tableHTML;
+    // alert(tableHTML)
+    // alert(44 + 434)
+
+    // console.log(prompt("What is your name?"))
+
+    table.innerHTML = tableHTML;
+}
