@@ -21,7 +21,6 @@ function createVoteTable(){
     var tableContainer = document.getElementById("table-container")
 
     var tableHTML = `<table>`;
-    
 
     usElectionVotingResults.forEach(function(item){
         tableHTML += `<tr>
