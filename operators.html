@@ -37,8 +37,27 @@
             resultContainer.innerText = result;
         }
 
-        var result = multiply(3123123, 423432424);
-        printResult(result);
+        function total(){
+            console.log(arguments);
+            var total = 0;
+            var average = 0;
+            for (let index = 0; index < arguments.length; index++) {
+                const element = arguments[index];
+                total += element;  
+            }
+
+            average = total / arguments.length;
+
+            // return total
+            // return [total, average];
+            return { total : total, average: average }
+        }
+
+        var result = total(1, 2, 3, 4);
+
+        console.log(result);
+
+        printResult(`total is ${result.total} with a average ${result.average}`);
         
         
         // Add
