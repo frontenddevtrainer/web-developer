@@ -30,15 +30,15 @@ class VoteResult {
         // }
 
         if (this.democraticParty > this.republicanParty) {
-            return "Democratic Party"
+            return getPartyIcon(1)
         }
 
         if (this.republicanParty > this.democraticParty) {
-            return "Republican Party"
+            return getPartyIcon(2)
         }
 
         if (this.republicanParty === this.democraticParty) {
-            return "tie"
+            return getPartyIcon(0)
         }
 
     }
@@ -49,23 +49,33 @@ const loadResultsButton = document.getElementById("loadResultsButton");
 const table = document.getElementById("table-container");
 var isResultShown = false;
 
-loadResultsButton.addEventListener("click", function(){
-    
-    if(!isResultShown) {
+loadResultsButton.addEventListener("click", function () {
+
+    if (!isResultShown) {
         loadResults();
         loadResultsButton.innerText = "Hide Results"
         isResultShown = true;
-    }else {
+    } else {
         table.innerHTML = "";
         loadResultsButton.innerText = "Load Results"
         isResultShown = false;
     }
 
-    
+
 })
 
+function getPartyIcon(party) {
+    switch (party) {
+        case 1:
+            return "🟩"
+        case 2:
+            return "🟦"
+        default:
+            return "🟥"
+    }
+}
+
 function loadResults() {
-    
 
     const voteResults = [
         new VoteResult("Arizona", 5434, 4534),
@@ -86,15 +96,28 @@ function loadResults() {
     <td>Lead</td>
 </tr>`
 
-    voteResults.forEach((result, index) => {
+
+    for (let index = 0; index < voteResults.length; index++) {
+        const result = voteResults[index];
+
         tableHTML += `<tr>
         <td>${index + 1}</td>
         <td>${result.region}</td>
         <td>${result.democraticParty}</td>
         <td>${result.republicanParty}</td>
-        <td>${result.whoIsWinning()}</td>
-    </tr>`
-    })
+        <td>${result.whoIsWinning()}</td>`
+
+    }
+
+    // voteResults.forEach((result, index) => {
+    //     tableHTML += `<tr>
+    //     <td>${index + 1}</td>
+    //     <td>${result.region}</td>
+    //     <td>${result.democraticParty}</td>
+    //     <td>${result.republicanParty}</td>
+    //     <td>${result.whoIsWinning()}</td>
+    // </tr>`
+    // })
 
     tableHTML += `</table>`;
 
